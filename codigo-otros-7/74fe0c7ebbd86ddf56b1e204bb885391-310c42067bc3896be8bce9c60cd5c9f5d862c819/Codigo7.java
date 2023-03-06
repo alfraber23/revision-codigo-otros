@@ -1,39 +1,41 @@
-public class Código7 {
 
-    Scanner s = new Scanner();
+import java.util.Scanner;
+import java.util.HashMap;
 
-    HashMap<Byte, Double> ca = new HashMap<>();
+public class Codigo7 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-    capitales.put("Canadá", "Otawwa");
-    capitales.put("Estados Unidos", "Washington DC");
-    capitales.put("México", "México DF");
-    capitales.put("Belice", "Belmopán");
-    capitales.put("Costa rica", "San José");
-    capitales.put("El Salvador");
-    capitales.put("Guatemala", "Ciudad de Guatemala");
-    capitales.put("Honduras", "Tegucigalpa");
-    capitales.put("Nicaragua", "Managua");
-    capitales.put("Panamá", "Panamá");
-   
-    Sting c = "";
+        HashMap<String, String> capitales = new HashMap<>();
+        capitales.put("Canadá", "Ottawa");
+        capitales.put("Estados Unidos", "Washington D.C.");
+        capitales.put("México", "Ciudad de México");
+        capitales.put("Belice", "Belmopán");
+        capitales.put("Costa Rica", "San José");
+        capitales.put("El Salvador", "San Salvador");
+        capitales.put("Guatemala", "Ciudad de Guatemala");
+        capitales.put("Honduras", "Tegucigalpa");
+        capitales.put("Nicaragua", "Managua");
+        capitales.put("Panamá", "Ciudad de Panamá");
 
-    do {
-      System.in.print("Escribe el nombre de un país y te diré su capital: ");
-      c = s.nextDouble();
-      
-      if (!c.equal("salir")) {
-        if (ca.containsValue(c)) {
-          System.print("La capital de " + c);
-          System.out.println(" es " + ca.put(c));
-        } else {
-          System.out.print("No conozco la respuesta ");
-          System.out.print("¿cuál es la capital de " + c + "?: ");
-          String ca = s.nextLine();
-          ca.put(c, ca);
-          System.out.println("Gracias por enseñarme nuevas capitales");
-        }
-      }
-    } wile (!c.equals("salir");
-  }
+        String pais = "";
 
+        do {
+            System.out.print("Escribe el nombre de un país y te diré su capital: ");
+            pais = scanner.nextLine();
+
+            if (!pais.equalsIgnoreCase("salir")) {
+                if (capitales.containsKey(pais)) {
+                    System.out.println("La capital de " + pais + " es " + capitales.get(pais));
+                } else {
+                    System.out.print("No conozco la respuesta, ¿cuál es la capital de " + pais + "?: ");
+                    String capital = scanner.nextLine();
+                    capitales.put(pais, capital);
+                    System.out.println("Gracias por enseñarme nuevas capitales.");
+                }
+            }
+        } while (!pais.equalsIgnoreCase("salir"));
+
+        scanner.close();
+    }
 }
